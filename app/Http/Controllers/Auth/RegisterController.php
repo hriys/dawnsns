@@ -49,11 +49,24 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|max:255',
-            'mail' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:4|confirmed',
+            'username' => 'required|string|max:12|min:4',
+            'mail' => 'required|string|email|max:50|min:5|unique:users',
+            'password' => 'required|string|min:4|max:12|confirmed|alpha_num',
+        ],[
+            'required' => 'この項目は必須です。',
+            'username.min' => '名前は4文字以上でお願いします。',
+            'username.max' => '名前は12文字以内でお願いします。',
+            'email' => 'メールアドレスを入れてください。',
+            'mail.min' => '5文字以上でお願いします。',
+            'mail.max' => '50文字以内でお願いします。',
+            'unique' => 'そのメールアドレスは既に使われています。',
+            'password.min' => 'パスワードは4文字以上でお願いします。',
+            'password.max' => 'パスワードは12文字以内でお願いします。',
+            'confirmed' => '確認用パスワードと一致しません。',
+            'alpha_num' => '英数字でお願いします。'
         ]);
     }
+    //validator バリテーションをするメソッド
 
     /**
      * Create a new user instance after a valid registration.
@@ -69,6 +82,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+//bcrypt ハッシュ化。文字列置き換える。
 
 
     // public function registerForm(){
@@ -79,8 +93,17 @@ class RegisterController extends Controller
         if($request->isMethod('post')){
             $data = $request->input();
 
-            $this->create($data);
-            return redirect('added');
+            $validator = $this->validator($data);
+            if ($validator->fails()) {
+                return redirect('/register')
+                        ->withErrors($validator)
+                        ->withInput();
+            }else{
+                $this->create($data);
+                return redirect('added')->with('username',$data['username']);
+    
+            }
+
         }
         return view('auth.register');
     }

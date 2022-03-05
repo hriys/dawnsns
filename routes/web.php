@@ -32,12 +32,25 @@ Route::get('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
+Route::post('/post/create','PostsController@create');
+
+Route::get('/post/{id}/update-form', 'PostsController@updateForm'); //更新ボタン
+
+Route::post('/post/update', 'PostsController@update'); //更新
+
+Route::get('post/{id}/delete', 'PostsController@delete');
+Auth::routes();
+
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
+Route::post('/search','UsersController@search');
+
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
 
-
+//Route::get('/', function () {
+//  return view('auth.login');
+//    });
