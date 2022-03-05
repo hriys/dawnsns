@@ -46,13 +46,14 @@ class PostsController extends Controller
 
     public function update(Request $request)
     {
-        $id = $request->input('id');
-        $up_post = $request->input('upPost');
+        $id = $request->input('upid');
+        $up_post = $request->input('update');
         DB::table('posts')
             ->where('id', $id)
-            ->update(
-                ['post' => $up_post]
-            );
+            ->update([
+                'posts' => $up_post,
+                'updated_at' => now(),
+                ]);
 
         return redirect('/top');
     }

@@ -34,9 +34,7 @@ Route::get('/top','PostsController@index');
 
 Route::post('/post/create','PostsController@create');
 
-Route::get('/post/{id}/update-form', 'PostsController@updateForm'); //更新ボタン
-
-Route::post('/post/update', 'PostsController@update'); //更新
+Route::post('/update', 'PostsController@update'); //更新
 
 Route::get('post/{id}/delete', 'PostsController@delete');
 Auth::routes();
