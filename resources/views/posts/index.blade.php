@@ -19,7 +19,7 @@
                 <td>{{ $list->posts }}</td>
                 <td>{{ $list->created_at }}</td>
 
-                @if($list->user_id === Auth::id())
+                @if($list->user_id === Auth::id()) <!-- if文 -->
                 <td><a class="btn btn-primary modalopen" data-target="{{ $list->id }}" href=""><img src="/images/edit.png" alt="更新ボタン"></a></td>
                 <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"><img src="/images/trash_h.png" alt="削除ボタン"></a></td>
                 @endif
@@ -27,7 +27,7 @@
 
             <div class="upform" id="{{ $list->id }}">
                 <form action="update" method="post">
-                    @csrf
+                    @csrf <!-- セキュリティ　このフォームから送ったよ -->
                     <input type="text" name="update" value="{{ $list->posts }}">
                     <input type="hidden" name="upid" value="{{ $list->id }}">
                     <input type="image" src="/images/edit.png">

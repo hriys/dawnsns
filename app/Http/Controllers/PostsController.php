@@ -18,7 +18,7 @@ class PostsController extends Controller
         $list = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
         ->select('posts.id','posts.user_id','posts.posts','posts.created_at','users.username','users.images')
-        ->orderBy('posts.created_at','desc')
+        ->orderBy('posts.created_at','desc') //順番
         ->get();
         //ddd($list); //画面に出力
         return view('posts.index',['list'=>$list]);

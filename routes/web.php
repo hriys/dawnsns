@@ -39,14 +39,19 @@ Route::post('/update', 'PostsController@update'); //更新
 Route::get('post/{id}/delete', 'PostsController@delete');
 Auth::routes();
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile','UsersController@myprofile');
+
+Route::get('/{id}/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');
 
+Route::post('/follow','FollowsController@follow');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::post('/unfollow','FollowsController@unfollow');
+
+Route::get('/followList','FollowsController@followList');
+Route::get('/followerList','FollowsController@followerList');
 
 
 //Route::get('/', function () {
