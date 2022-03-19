@@ -41,6 +41,8 @@ Auth::routes();
 
 Route::get('/profile','UsersController@myprofile');
 
+Route::post('/myprof','UsersController@myprofupdate');
+
 Route::get('/{id}/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');

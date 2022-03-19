@@ -15,6 +15,21 @@ class UsersController extends Controller
         return view('users.myprofile',['myprofile' => $myprofile]);
     }
 
+    public function myprofupdate(Request $request){
+        $upname = $request->input('username');
+        $upmail = $request->input('mailAdress');
+        $uppass = $request->input('newPass');
+        $upbio = $request->input('bio');
+        $upicon = $request->file('icon');
+        $iconname = $upicon->getClientOriginalName(); //画像の名前抜き出し
+        $upicon->storeAs('images', $iconname,'save'); //保存先のフォルダ名、画像の名前、保存方法
+
+        //ddd($iconname);
+
+        return back(); //前のページに戻る
+    }
+
+
     public function profile($id){
         $usersprof = DB::table('users')
             ->where('id',$id)
