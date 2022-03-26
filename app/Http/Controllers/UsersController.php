@@ -21,10 +21,33 @@ class UsersController extends Controller
         $uppass = $request->input('newPass');
         $upbio = $request->input('bio');
         $upicon = $request->file('icon');
-        $iconname = $upicon->getClientOriginalName(); //画像の名前抜き出し
-        $upicon->storeAs('images', $iconname,'save'); //保存先のフォルダ名、画像の名前、保存方法
 
-        //ddd($iconname);
+        if(isset($uppass)){
+            DB::table('users')
+            ->where('id', Auth::id())
+            ->update([
+                'password' => bcrypt($uppass),
+                ]);
+        }
+
+        if(isset($upicon)){
+            $iconname = $upicon->getClientOriginalName(); //画像の名前抜き出し
+            $upicon->storeAs('images', $iconname,'save'); //保存先のフォルダ名、画像の名前、保存方法
+
+            DB::table('users')
+            ->where('id', Auth::id())
+            ->update([
+                'images' => $iconname,
+                ]);
+        }
+
+        DB::table('users')
+            ->where('id', Auth::id())
+            ->update([
+                'username' => $upname,
+                'mail' => $upmail,
+                'bio' => $upbio,
+            ]);
 
         return back(); //前のページに戻る
     }

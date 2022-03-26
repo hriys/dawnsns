@@ -25,7 +25,7 @@
         <h1><a><img src="images/logo.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    <p>{{$name->username}}さん<img src="images/arrow.png"></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
@@ -41,15 +41,15 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ $name->username }}さんの</p>
                 <div>
-                <p>フォロー数</p>
-                <p>〇〇名</p>
+                    <p>フォロー数</p>
+                    <p>{{ $followcount }}名</p>
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
                 <div>
-                <p>フォロワー数</p>
-                <p>〇〇名</p>
+                    <p>フォロワー数</p>
+                    <p>{{ $followercount }}名</p>
                 </div>
                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>

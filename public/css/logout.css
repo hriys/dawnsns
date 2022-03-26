@@ -3,7 +3,92 @@
 html{
     height: 100%;
 }
+
 body{
     height: 100%;
-    background: #3C4767;
+    background: linear-gradient(to bottom, #3C4767 60%, #FF4F02); 
+    text-align: center;
+    color: white;
+}
+
+#position{
+    position: relative;
+    top: 10%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.register {
+    font-size: 0.5rem;
+}
+
+.frame {
+    width: 15%;
+    background-color: rgba(0,0,0,0.3);
+    padding:20px 10px;
+    margin: 40px auto 0 auto;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.frameadded{
+    width: 18%;
+    background-color: rgba(0,0,0,0.3);
+    padding:20px 10px;
+    margin: 40px auto 0 auto;
+    border-radius: 10px;
+    font-size: 0.8rem;
+
+}
+
+.login {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.login label {
+    display:block;
+    text-align: left;
+    padding-left: 20px;
+
+}
+
+.logbtn{
+    margin-top: 15px;
+    margin-left: 80px;
+    margin-bottom: 30px;
+    background-color: #6A5ACD ;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.btn {
+    margin: 15px 0;
+}
+
+.btn a{
+    background-color: #6A5ACD ;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+
+.sns {
+    font-size: 1.5rem;
+}
+
+.added {
+    padding: 5px 0px 10px 0px;
+}
+
+.addedleft {
+    text-align: left;
+    padding: 5px 0px 10px 0px;
+
 }

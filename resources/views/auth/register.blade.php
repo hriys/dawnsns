@@ -2,36 +2,50 @@
 
 @section('content')
 
-{!! Form::open() !!}
+<div class="frame">
+    {!! Form::open() !!}
 
-<h2>新規ユーザー登録</h2>
+    <h2>新規ユーザー登録</h2>
 
-{{ Form::label('Username') }}
-{{ Form::text('username',null,['class' => 'input']) }}
-@if($errors->has('username'))
-{{$errors->first('username')}}
-@endif
+    <div class="login">
+        {{ Form::label('Username') }}
+        {{ Form::text('username',null,['class' => 'input']) }}
+        @if($errors->has('username'))
+        {{$errors->first('username')}}
+        @endif
+    </div>
 
-{{ Form::label('MailAdress') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-@if($errors->has('mail'))
-{{$errors->first('mail')}}
-@endif
+    <div class="login">
+        {{ Form::label('MailAdress') }}
+        {{ Form::text('mail',null,['class' => 'input']) }}
+        @if($errors->has('mail'))
+        {{$errors->first('mail')}}
+        @endif
+    </div>
 
-{{ Form::label('Password') }}
-{{ Form::password('password',null,['class' => 'input']) }}
-@if($errors->has('password'))
-{{$errors->first('password')}}
-@endif
+    <div class="login">
+        {{ Form::label('Password') }}
+        {{ Form::password('password',null,['class' => 'input']) }}
+        @if($errors->has('password'))
+        {{$errors->first('password')}}
+        @endif
+    </div>
 
-{{ Form::label('password_confirmation') }}
-{{ Form::password('password_confirmation',null,['class' => 'input']) }}
+    <div class="login">
+        {{ Form::label('password_confirmation') }}
+        {{ Form::password('password_confirmation',null,['class' => 'input']) }}
+    </div>
 
-{{ Form::submit('登録') }}
+    <div class="button">
+        {{ Form::submit('REGISTER', ['class' => 'logbtn']) }}
+    </div>
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+    <p class="register">
+        <a href="/login">ログイン画面へ戻る</a>
+    </p>
 
-{!! Form::close() !!}
+    {!! Form::close() !!}
+</div>
 
 
 @endsection

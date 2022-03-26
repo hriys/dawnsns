@@ -37,7 +37,6 @@ Route::post('/post/create','PostsController@create');
 Route::post('/update', 'PostsController@update'); //更新
 
 Route::get('post/{id}/delete', 'PostsController@delete');
-Auth::routes();
 
 Route::get('/profile','UsersController@myprofile');
 
@@ -55,7 +54,5 @@ Route::post('/unfollow','FollowsController@unfollow');
 Route::get('/followList','FollowsController@followList');
 Route::get('/followerList','FollowsController@followerList');
 
+Route::get('/logout','Auth\LoginController@logout');
 
-//Route::get('/', function () {
-//  return view('auth.login');
-//    });
