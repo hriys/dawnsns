@@ -37,7 +37,7 @@ a {
 .frameadded{
     width: 18%;
     background-color: rgba(0,0,0,0.3);
-    padding:20px 10px;
+    padding:20px 10px 30px 10px;
     margin: 40px auto 0 auto;
     border-radius: 10px;
     font-size: 0.8rem;
@@ -75,7 +75,7 @@ a {
     background-color: #6A5ACD ;
     border: none;
     color: white;
-    padding: 5px 20px;
+    padding: 5px 10px;
     border-radius: 10px;
 }
 
@@ -84,11 +84,16 @@ a {
 }
 
 .added {
-    padding: 5px 0px 10px 0px;
+    padding: 5px 0px;
 }
 
 .addedleft {
     text-align: left;
-    padding: 5px 0px 10px 0px;
+    padding: 5px 0px;
 
+}
+
+.addedwhile {
+    padding-top: 20px;
+    padding-bottom: 10px;
 }

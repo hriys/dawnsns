@@ -22,11 +22,13 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>{{$name->username}}さん<img src="images/arrow.png"></p>
-                <div>
+            <h1>
+                <a href="/top"><img src="/images/main_logo.png"></a>
+            </h1>
+            <div id="menu">
+                <div id="user">
+                    <p>{{$name->username}}さん<span>▼</span></p><img src="/images/dawn.png" class="icon">
+                </div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
@@ -42,18 +44,22 @@
         <div id="side-bar">
             <div id="confirm">
                 <p>{{ $name->username }}さんの</p>
-                <div>
+                <div id="followcount">
                     <p>フォロー数</p>
-                    <p>{{ $followcount }}名</p>
+                    <div class="count">
+                        <p>{{ $followcount }}名</p>
+                    </div>
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
-                <div>
+                <div id="followercount">
                     <p>フォロワー数</p>
-                    <p>{{ $followercount }}名</p>
+                    <div class="count">
+                        <p>{{ $followercount }}名</p>
+                    </div>
                 </div>
                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="btn search"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

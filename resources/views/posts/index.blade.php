@@ -14,7 +14,7 @@
 <table>
 @foreach ($list as $list)
             <tr>
-                <td><img src="/images/{{ $list->images }}" alt="アイコン"></td>
+                <td><img src="/images/{{ $list->images }}" alt="アイコン" class="icon"></td>
                 <td>{{ $list->username }}</td>
                 <td>{{ $list->posts }}</td>
                 <td>{{ $list->created_at }}</td>

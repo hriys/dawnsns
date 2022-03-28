@@ -1,26 +1,96 @@
 @charset "utf-8";
-html{
+
+html {
+    height: 100%;
 }
-body{
+
+body {
+    font-size: 0.7rem;
+
 }
 /* header */
-header{
+header {
     background:#3C4767;
 }
 
+#head {
+    position: relative;
+}
+
+#menu {
+    color: white;
+    position: absolute;
+}
+
+#menu {
+    right:2%;
+    top:20%;
+}
+
+#menu a {
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+#user p {
+    display: inline;
+    right:20%;
+    top:20%;
+
+}
+
+#head h1 img {
+    width: 15%;
+}
+
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
 }
 
-.upform{
+.upform {
     display:none;
+}
+
+#side-bar #confirm .btn {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#side-bar .btn a {
+    background-color: #3C4767 ;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#confirm {
+    padding: 10px 10px;
+}
+
+#confirm p {
+    padding-bottom: 10px;
+}
+
+.search {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.icon {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+}
+
+#menu ul {
+    display: none;
 }

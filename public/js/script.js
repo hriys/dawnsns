@@ -1,3 +1,5 @@
+
+//投稿の更新フォーム
 $(function () {
     $('.modalopen').each(function () {
         $(this).on('click', function () {
@@ -10,6 +12,14 @@ $(function () {
     });
     $('.modalClose').on('click', function () {
         $('.js-modal').fadeOut();
+        return false;
+    });
+});
+
+//プルダウンメニュー
+$(function(){
+    $('#user p').click(function() {
+        $('#menu ul').slideToggle();
         return false;
     });
 });
