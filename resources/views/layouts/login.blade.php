@@ -27,7 +27,7 @@
             </h1>
             <div id="menu">
                 <div id="user">
-                    <p>{{$name->username}}さん<span>▼</span></p><img src="/images/dawn.png" class="icon">
+                    <p>{{$name->username}}さん<span>▼</span></p><img src="/images/{{$name->images}}" class="icon">
                 </div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>

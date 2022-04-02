@@ -58,7 +58,31 @@ header {
 
 .upform {
     display:none;
+    position: fixed;
+    top:40%;
+    left: 38%;
+    background-color: #dcdcdc;
+    height: 30%;
+    width: 20%;
+    border: 1px ;
+    z-index: 5;
 }
+
+.upform input {
+    margin-top: 45px;
+    margin-left: 25px;
+}
+
+#bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 1;
+}
+
 
 #side-bar #confirm .btn {
     text-align: right;
@@ -89,6 +113,7 @@ header {
 
 .icon {
     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width: 50px;
 }
 
 #menu ul {
@@ -122,4 +147,5 @@ header {
 
 table {
     border-spacing: 5px;
+    width: 63rem;
 }
