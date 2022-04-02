@@ -2,18 +2,20 @@
 
 @section('content')
 
-{!! Form::open(['url' => 'post/create']) !!}
-    <div class="form-group">
-        {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
-    </div>
-    <button type="submit" class="btn btn-success pull-right">
-        <img src="/images/post.png" alt="投稿ボタン">
-    </button>
-{!! Form::close() !!}
+<div class="post">
+    {!! Form::open(['url' => 'post/create']) !!}
+        <div class="flex">
+            {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
+        <button type="submit" class="btn">
+            <img src="/images/post.png" alt="投稿ボタン">
+        </button>
+        </div>
+    {!! Form::close() !!}
+</div>
 
 <table>
 @foreach ($list as $list)
-            <tr>
+            <tr class="timeline">
                 <td><img src="/images/{{ $list->images }}" alt="アイコン" class="icon"></td>
                 <td>{{ $list->username }}</td>
                 <td>{{ $list->posts }}</td>

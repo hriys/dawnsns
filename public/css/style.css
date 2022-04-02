@@ -94,3 +94,32 @@ header {
 #menu ul {
     display: none;
 }
+
+.form-control {
+    border:none;
+    height: 5rem;
+    width: 50rem;
+    outline: none;
+}
+
+.post {
+    border-bottom: 3px solid #dcdcdc;
+}
+
+.flex {
+    display: flex;
+}
+
+.post .btn {
+    background-color: white;
+    border: none;
+}
+
+.timeline {
+    height: 80px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+table {
+    border-spacing: 5px;
+}
