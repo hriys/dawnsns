@@ -7,20 +7,23 @@ $(function () {
         var modal = document.getElementById(target);
         console.log(modal);
         $(modal).fadeIn();
-        return false;
+        $("body").append('<div id="bg">');
+        $("#bg").fadeIn();
         });
     });
-    $('.modalClose').on('click', function () {
-        $('.js-modal').fadeOut();
+    $("#bg").on('click', function(){
+        $(this).fadeOut(function(){
+            $(this).remove();
+        });
+        $().fadeOut();
         return false;
     });
 });
 
 //プルダウンメニュー
 $(function(){
-    $('#user p').click(function() {
+    $('#user').click(function() {
         $('#menu ul').slideToggle();
         return false;
     });
 });
-

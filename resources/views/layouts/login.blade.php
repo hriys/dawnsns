@@ -30,9 +30,9 @@
                     <p>{{$name->username}}さん<span>▼</span></p><img src="/images/{{$name->images}}" class="icon">
                 </div>
                 <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                    <li class="red"><a href="/top">ホーム</a></li>
+                    <li class="white"><a href="/profile">プロフィール</a></li>
+                    <li class="white"><a href="/logout">ログアウト</a></li>
                 </ul>
             </div>
         </div>

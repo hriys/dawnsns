@@ -36,11 +36,28 @@ header {
     display: inline;
     right:20%;
     top:20%;
-
+    color: white;
+    text-decoration: none;
 }
 
 #head h1 img {
-    width: 15%;
+    width: 10%;
+}
+
+.red {
+    background-color: #ff6347;
+}
+
+.red a {
+    color: white;
+}
+
+.white {
+    background-color: white;
+}
+
+.white a {
+    color: black;
 }
 
 /* main content */
@@ -100,6 +117,7 @@ header {
 
 #confirm {
     padding: 10px 10px;
+    border-bottom: 1px solid #6C6C6C;
 }
 
 #confirm p {
@@ -113,6 +131,7 @@ header {
 
 .icon {
     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    height: 50px;
     width: 50px;
 }
 
@@ -120,15 +139,29 @@ header {
     display: none;
 }
 
+#menu ul li {
+    height: 40px;
+    width: 100px;
+    border: 1px solid #dcdcdc;
+    list-style-type: none;
+    text-align: center;
+}
+
+#menu ul li a {
+    line-height: 40px;
+}
+
 .form-control {
     border:none;
-    height: 5rem;
+    height: 2.5rem;
     width: 50rem;
     outline: none;
 }
 
 .post {
     border-bottom: 3px solid #dcdcdc;
+    padding: 20px 0;
+    margin-bottom: 20px;
 }
 
 .flex {
@@ -148,4 +181,43 @@ header {
 table {
     border-spacing: 5px;
     width: 63rem;
+}
+
+.usersearch {
+    border-bottom: 3px solid #dcdcdc;
+    padding: 20px 0;
+    margin-bottom: 20px;
+
+}
+
+.usersearch .btn {
+    background-color: white;
+    border: none;
+}
+
+.searchfollow, .searchunfollow {
+    background-color: #1e90ff ;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.searchword {
+    margin-left: 50px;
+    padding-top: 30px;
+}
+
+.list {
+    border-bottom: 3px solid #dcdcdc;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.followlist, .followerlist {
+    font-size: 25px;
+    color: #6C6C6C;
+    margin: 20px 0 10px 30px;
 }
