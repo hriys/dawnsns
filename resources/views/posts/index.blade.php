@@ -27,13 +27,15 @@
                 @endif
             </tr>
 
-            <div class="upform" id="{{ $list->id }}">
-                <form action="update" method="post">
-                    @csrf <!-- セキュリティ　このフォームから送ったよ -->
-                    <input type="text" name="update" value="{{ $list->posts }}">
-                    <input type="hidden" name="upid" value="{{ $list->id }}">
-                    <input type="image" src="/images/edit.png">
-                </form>
+            <div id="{{ $list->id }}" class="bg">
+                <div class="upform">
+                    <form action="update" method="post">
+                        @csrf <!-- セキュリティ　このフォームから送ったよ -->
+                        <input type="text" name="update" value="{{ $list->posts }}">
+                        <input type="hidden" name="upid" value="{{ $list->id }}">
+                        <input type="image" src="/images/edit.png">
+                    </form>
+                </div>
             </div>
 @endforeach
 </table>

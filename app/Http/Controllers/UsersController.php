@@ -75,7 +75,7 @@ class UsersController extends Controller
     public function search(Request $request){ //Request リクエストクラスから$requestとして扱う
         $search = $request->input('search');
 
-        $followerid = DB::table('follows')
+        $followerid = DB::table('follows') //DBデータベース
             ->where('follower',Auth::id())
             ->get()
             ->toArray();
@@ -94,6 +94,6 @@ class UsersController extends Controller
             ->get();
         }
 
-        return view('users.search',['users' => $users, 'followerid' => $followerid]); //右のものを左に入れている「左のものはなんですか。右です。」
+        return view('users.search',['users' => $users, 'followerid' => $followerid ,'search' => $search]); //右のものを左に入れている「左のものはなんですか。右です。」
     }
 }

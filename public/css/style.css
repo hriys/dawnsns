@@ -44,21 +44,6 @@ header {
     width: 10%;
 }
 
-.red {
-    background-color: #ff6347;
-}
-
-.red a {
-    color: white;
-}
-
-.white {
-    background-color: white;
-}
-
-.white a {
-    color: black;
-}
 
 /* main content */
 #row {
@@ -74,15 +59,13 @@ header {
 }
 
 .upform {
-    display:none;
     position: fixed;
     top:40%;
     left: 38%;
-    background-color: #dcdcdc;
+    background-color: white;
     height: 30%;
     width: 20%;
     border: 1px ;
-    z-index: 5;
 }
 
 .upform input {
@@ -90,14 +73,15 @@ header {
     margin-left: 25px;
 }
 
-#bg {
+.bg {
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.4);
-	z-index: 1;
+	z-index: 10;
+    display: none;
 }
 
 
@@ -145,10 +129,20 @@ header {
     border: 1px solid #dcdcdc;
     list-style-type: none;
     text-align: center;
+    background-color: white;
 }
 
 #menu ul li a {
     line-height: 40px;
+    color: black;
+}
+
+#menu ul li:hover {
+    background-color: red;
+}
+
+#menu ul li a:hover {
+    color: white;
 }
 
 .form-control {
@@ -195,13 +189,27 @@ table {
     border: none;
 }
 
-.searchfollow, .searchunfollow {
+.searchfollow {
     background-color: #1e90ff ;
     border: none;
     color: white;
     padding: 5px 10px;
     border-radius: 10px;
     margin-bottom: 10px;
+    width: 150px;
+    height: 40px;
+
+}
+
+.searchunfollow {
+    background-color: #b22222 ;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 150px;
+    height: 40px;
 }
 
 .searchword {
@@ -220,4 +228,36 @@ table {
     font-size: 25px;
     color: #6C6C6C;
     margin: 20px 0 10px 30px;
+}
+
+.myprofile {
+    position: absolute;
+    left: 25%;
+}
+
+.myprofile div {
+    margin-bottom: 50px;
+}
+
+.myprofile div:nth-of-type(n+2) {
+    margin-left: 55px;
+}
+
+.myprofile label {
+    display: inline-block;
+    width: 100px;
+}
+
+.first {
+    margin-top: 20px;
+    width: 400px;
+}
+
+.myprofile button {
+    background-color: #769164;
+    border: none;
+    color: white;
+    padding: 5px 40px;
+    border-radius: 10px;
+    margin-left: 200px;
 }

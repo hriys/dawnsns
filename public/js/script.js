@@ -7,16 +7,15 @@ $(function () {
         var modal = document.getElementById(target);
         console.log(modal);
         $(modal).fadeIn();
-        $("body").append('<div id="bg">');
-        $("#bg").fadeIn();
+        return false;
         });
     });
-    $("#bg").on('click', function(){
-        $(this).fadeOut(function(){
-            $(this).remove();
-        });
-        $().fadeOut();
+    $(".bg").on('click', function(){
+        $(".bg").fadeOut();
         return false;
+    });
+    $(".upform").click(function(event){
+        event.stopPropagation();
     });
 });
 
