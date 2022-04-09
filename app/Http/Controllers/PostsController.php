@@ -21,7 +21,7 @@ class PostsController extends Controller
         ->orderBy('posts.created_at','desc') //順番
         ->get();
         //ddd($list); //画面に出力
-        return view('posts.index',['list'=>$list]);
+        return view('posts.index',['list'=>$list]);//左の中に右がある
     }
 
     public function create(Request $request)
@@ -33,7 +33,7 @@ class PostsController extends Controller
             'created_at' => now(),
         ]);
 
-        return redirect('/top');
+        return redirect('/top'); //移動
     }
 
     public function updateForm($id)

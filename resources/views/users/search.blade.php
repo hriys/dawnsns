@@ -12,8 +12,8 @@
     <div class="searchword">
         <!-- 検索ワード表示 -->
         <p>検索ワード:{{ $search }}</p>
-    </div> 
     </div>
+</div>
 {!! Form::close() !!}
 </div>
 

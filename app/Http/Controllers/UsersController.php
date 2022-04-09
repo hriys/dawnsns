@@ -15,8 +15,8 @@ class UsersController extends Controller
         return view('users.myprofile',['myprofile' => $myprofile]);
     }
 
-    public function myprofupdate(Request $request){
-        $upname = $request->input('username');
+    public function myprofupdate(Request $request){ //Requestクラスを$requestとして扱う。画面から送られたものを扱う
+        $upname = $request->input('username'); //$requestの中のinputメソッドを使う
         $upmail = $request->input('mailAdress');
         $uppass = $request->input('newPass');
         $upbio = $request->input('bio');
@@ -26,7 +26,7 @@ class UsersController extends Controller
             DB::table('users')
             ->where('id', Auth::id())
             ->update([
-                'password' => bcrypt($uppass),
+                'password' => bcrypt($uppass), //bcryptハッシュ化
                 ]);
         }
 
@@ -81,12 +81,12 @@ class UsersController extends Controller
             ->toArray();
             //ddd($followerid);
 
-        if(isset($search)){
+        if(isset($search)){ //イズセット セットされてたら（値が入っていたら）
             $users = DB::table('users')
             ->where('id','<>',Auth::id())//Auth認証した。ログインした。
             //ログインしたidと一致していないユーザー
             ->where('username','like','%'.$search.'%')
-            ->get();    
+            ->get();
         }else{
             $users = DB::table('users')
             ->where('id','<>',Auth::id())//Auth認証した。ログインした。

@@ -94,14 +94,13 @@ class RegisterController extends Controller
             $data = $request->input();
 
             $validator = $this->validator($data);
-            if ($validator->fails()) {
+            if ($validator->fails()) { //復習
                 return redirect('/register')
                         ->withErrors($validator)
                         ->withInput();
             }else{
                 $this->create($data);
                 return redirect('added')->with('username',$data['username']);
-    
             }
 
         }
