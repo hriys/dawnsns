@@ -58,13 +58,13 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    public function delete($id)
+    public function delete($id) //選択されたid、投稿内容
     {
-        DB::table('posts')
-            ->where('id', $id)
-            ->delete();
+        DB::table('posts') //postテーブルの
+            ->where('id', $id) //postのidと選択されたidが一致
+            ->delete(); //削除する
 
-        return redirect('/top');
+        return redirect('/top'); //redirectリダイレクト…このURLに飛ぶ
     }
 
 }

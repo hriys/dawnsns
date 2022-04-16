@@ -1,4 +1,3 @@
-
 //投稿の更新フォーム
 $(function () {
     $('.modalopen').each(function () {

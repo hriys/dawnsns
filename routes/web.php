@@ -20,11 +20,13 @@
 
 
 //ログアウト中のページ
+//get…URLを元に処理される
+//post…送られたものを使って処理を行う
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@register'); //get…URLを元に処理される
+Route::post('/register', 'Auth\RegisterController@register'); //post通信だったらこっち
 
 Route::get('/added', 'Auth\RegisterController@added');
 
@@ -34,9 +36,11 @@ Route::get('/top','PostsController@index');
 
 Route::post('/post/create','PostsController@create');
 
-Route::post('/update', 'PostsController@update'); //更新
+Route::post('/update', 'PostsController@update');
+//更新
 
 Route::get('post/{id}/delete', 'PostsController@delete');
+//idを元に削除の処理を行う
 
 Route::get('/profile','UsersController@myprofile');
 

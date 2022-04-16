@@ -9,9 +9,9 @@
 
     <div class="login">
         {{ Form::label('Username') }}
-        {{ Form::text('username',null,['class' => 'input']) }}
-        @if($errors->has('username'))
-        {{$errors->first('username')}}
+        {{ Form::text('username',null,['class' => 'input']) }} <!-- null…空 -->
+        @if($errors->has('username')) <!-- $errors(デフォルトであるクラス)の項目にusernameがあったら -->
+        {{$errors->first('username')}} <!-- 項目がusernameの中で一番最初のものを表示する -->
         @endif
     </div>
 

@@ -46,15 +46,18 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data) //バリデーター。（受け取り方の設定 受け取ったものを何と扱うか）
+    //99行目の配列の$dataを受け取って、右の$dataとして扱う。
     {
-        return Validator::make($data, [
-            'username' => 'required|string|max:12|min:4',
-            'mail' => 'required|string|email|max:50|min:5|unique:users',
-            'password' => 'required|string|min:4|max:12|confirmed|alpha_num',
+        return Validator::make($data, [ //Validator::make…バリデーターメイク。ルールにあっているか見る
+            'username' => 'required|string|max:12|min:4', //必須、文字、4文字以上12文字以下
+            'mail' => 'required|string|email|max:50|min:5|unique:users', //mailメールかどうか
+            //unique:usersユニークユーザーズ。Usersテーブルに同じものがあるか。あったらはじかれる
+            'password' => 'required|string|min:4|max:12|confirmed|alpha_num', //confirmedコンファメッド。確認用と合っているか
+            //alpha_numアルファベットと数字かどうか
         ],[
-            'required' => 'この項目は必須です。',
-            'username.min' => '名前は4文字以上でお願いします。',
+            'required' => 'この項目は必須です。', //リクアイアード
+            'username.min' => '名前は4文字以上でお願いします。', //文字数少なかったら
             'username.max' => '名前は12文字以内でお願いします。',
             'email' => 'メールアドレスを入れてください。',
             'mail.min' => '5文字以上でお願いします。',
@@ -76,10 +79,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'username' => $data['username'],
+        return User::create([ //Usersテーブルに作成する
+            'username' => $data['username'], //$data['username']を'username'に入れる
             'mail' => $data['mail'],
-            'password' => bcrypt($data['password']),
+            'password' => bcrypt($data['password']),//ビークリプト
         ]);
     }
 //bcrypt ハッシュ化。文字列置き換える。
@@ -89,22 +92,26 @@ class RegisterController extends Controller
     //     return view("auth.register");
     // }
 
-    public function register(Request $request){
-        if($request->isMethod('post')){
-            $data = $request->input();
+    public function register(Request $request){ //メソッド
+        //Requestクラスを$Requestとして扱う
+        if($request->isMethod('post')){ //isMethod('post')…イズメソッド。post通信だったら
+            //post通信…フォームとかから送られたもの
+            $data = $request->input(); //$request…画面から送られたもの。入力データやPDFや音楽データなど。
+            //input()…入力されたもの。()の中に何もない場合はすべて。
 
-            $validator = $this->validator($data);
-            if ($validator->fails()) { //復習
-                return redirect('/register')
-                        ->withErrors($validator)
-                        ->withInput();
-            }else{
-                $this->create($data);
+            $validator = $this->validator($data); //$validatorの中に49行目のvalidatorメソッドの処理結果を入れている
+            if ($validator->fails()) { //fails処理結果がひっかかったら。ダメだったら。
+                return redirect('/register') //redirectリダイレクト…このURLに飛ぶ
+                        ->withErrors($validator) //$validatorのエラー内容を持っていく
+                        ->withInput();//入力したデータも持っていく
+            }else{ //引っかからなかったら。入力項目がOKだったら
+                $this->create($data); //80行目のcreateメソッドの処理をする
                 return redirect('added')->with('username',$data['username']);
+                //URLは'added'に移動。$data['username']を'username'として持っていく
             }
 
         }
-        return view('auth.register');
+        return view('auth.register'); //get通信の処理の場合
     }
 
     public function added(){
