@@ -21,7 +21,7 @@ $(function () {
 //プルダウンメニュー
 $(function(){
     $('#user').click(function() {
-        $('#menu ul').slideToggle();
+        $('#menu ul').slideToggle(); //スライドする
         return false;
     });
 });

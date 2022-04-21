@@ -30,7 +30,7 @@ class Controller extends BaseController
 
         //view::share すべてのviewに反映させる
         View::share('name', Auth::user()); //左は変数、右は値
-        View::share('followcount', $followcount);
+        View::share('followcount', $followcount); //フォロー数
         View::share('followercount', $followercount);
 
         return $next($request);

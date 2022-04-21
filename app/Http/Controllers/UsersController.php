@@ -22,7 +22,7 @@ class UsersController extends Controller
         $upbio = $request->input('bio');
         $upicon = $request->file('icon');
 
-        if(isset($uppass)){
+        if(isset($uppass)){ //イズセット セットされてたら（値が入っていたら）
             DB::table('users')
             ->where('id', Auth::id())
             ->update([
@@ -30,9 +30,11 @@ class UsersController extends Controller
                 ]);
         }
 
-        if(isset($upicon)){
+        if(isset($upicon)){ //イズセット セットされてたら（値が入っていたら）
             $iconname = $upicon->getClientOriginalName(); //画像の名前抜き出し
             $upicon->storeAs('images', $iconname,'save'); //保存先のフォルダ名、画像の名前、保存方法
+            //storeAsストアアズ…保存する
+            //saveの方法で保存する
 
             DB::table('users')
             ->where('id', Auth::id())
@@ -53,7 +55,7 @@ class UsersController extends Controller
     }
 
 
-    public function profile($id){
+    public function profile($id){ //選択した人のid
         $usersprof = DB::table('users')
             ->where('id',$id)
             ->first(); //getは全部、firstは1回だけ持ってくる
@@ -78,16 +80,18 @@ class UsersController extends Controller
         $followerid = DB::table('follows') //DBデータベース
             ->where('follower',Auth::id())
             ->get()
-            ->toArray();
+            ->toArray(); //配列にする
             //ddd($followerid);
 
         if(isset($search)){ //イズセット セットされてたら（値が入っていたら）
+            //ログインしているユーザー以外と、入力したワードと一致するものを取得
             $users = DB::table('users')
-            ->where('id','<>',Auth::id())//Auth認証した。ログインした。
+            ->where('id','<>',Auth::id())//Auth::id()認証した。ログインした。
             //ログインしたidと一致していないユーザー
-            ->where('username','like','%'.$search.'%')
+            ->where('username','like','%'.$search.'%') //$searchに入力したものがusernameの中で一致していたら
+            //like…あいまい検索
             ->get();
-        }else{
+        }else{ //ログインしているユーザー以外取得
             $users = DB::table('users')
             ->where('id','<>',Auth::id())//Auth認証した。ログインした。
             //ログインしたidと一致していないユーザー

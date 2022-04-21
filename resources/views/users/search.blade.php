@@ -23,7 +23,8 @@
             <tr>
                 <td><img src="/images/{{ $user->images }}" alt="アイコン" class="icon"></td>
                 <td>{{ $user->username }}</td>
-                @if(!in_array($user->id,array_column($followerid,'follow')))
+                @if(!in_array($user->id,array_column($followerid,'follow')))<!-- array_columnアライカラム。項目 -->
+                <!-- $user->idが$followeridのfollowに入ってなかったら -->
                 <td>
                     <form action="/follow" method="post">
                         @csrf
@@ -31,7 +32,7 @@
                         <input type="submit" value="フォローする" class="searchfollow">
                     </form>
                 </td>
-                @else
+                @else <!-- $user->idが$followeridのfollowに入ってたら -->
                 <td>
                     <form action="/unfollow" method="post">
                         @csrf

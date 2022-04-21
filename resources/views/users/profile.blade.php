@@ -8,14 +8,17 @@
     <p><span>Bio</span>{{ $usersprof->bio }}</p>
 
 @if(!in_array($usersprof->id,array_column($followerid,'follow')))
+<!-- $usersprof->idが$followeridのfollowに入ってなかったら -->
     <td>
         <form action="/follow" method="post">
             @csrf
-            <input type="hidden" name="followid" value="{{ $usersprof->id }}">
+            <input type="hidden" name="followid" value="{{ $usersprof->id }}"> <!-- プロフィール画面の人のid -->
             <input type="submit" value="フォローする">
         </form>
     </td>
 @else
+<!-- $usersprof->idが$followeridのfollowに入ってたら -->
+
     <td>
         <form action="/unfollow" method="post">
             @csrf
