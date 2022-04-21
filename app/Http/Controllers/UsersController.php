@@ -34,7 +34,7 @@ class UsersController extends Controller
             $iconname = $upicon->getClientOriginalName(); //画像の名前抜き出し
             $upicon->storeAs('images', $iconname,'save'); //保存先のフォルダ名、画像の名前、保存方法
             //storeAsストアアズ…保存する
-            //saveの方法で保存する
+            //saveの方法で保存する　C:\xampp\htdocs\dawnSNS\config\filesystems.phpで設定している
 
             DB::table('users')
             ->where('id', Auth::id())
