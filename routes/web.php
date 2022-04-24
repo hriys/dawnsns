@@ -60,3 +60,5 @@ Route::get('/followerList','FollowsController@followerList');
 
 Route::get('/logout','Auth\LoginController@logout');
 
+Route::get('/test','PostsController@test');
+

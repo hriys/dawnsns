@@ -61,4 +61,17 @@ class PostsController extends Controller
         return redirect('/top'); //redirectリダイレクト…このURLに飛ぶ
     }
 
+    public function test()
+    {
+        $test =  DB::table('posts')
+        ->select('user_id','posts')
+        ->orderBy('created_at','desc') //順番の指定。desc（降順）でかいので（de）
+        //昇順(ASC)蟻のように小さい
+        ->where('user_id',Auth::id())
+        ->get();//取得する
+
+        return view('test',['test'=>$test]);
+    }
+
+
 }
